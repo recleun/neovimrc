@@ -10,6 +10,8 @@ return require('packer').startup(function(use)
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 
+	use {'nvim-telescope/telescope-ui-select.nvim' }
+
 	use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 	use('nvim-treesitter/playground')
 
@@ -20,6 +22,11 @@ return require('packer').startup(function(use)
 			{ 'nvim-lua/plenary.nvim' }
 		}
 	})
+
+	use {
+		'saecki/crates.nvim',
+		tag = 'stable',
+	}
 
 	use {
 		'VonHeikemen/lsp-zero.nvim',

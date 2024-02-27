@@ -90,6 +90,11 @@ _G.packer_plugins = {
     path = "/home/recleun/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  ["crates.nvim"] = {
+    loaded = true,
+    path = "/home/recleun/.local/share/nvim/site/pack/packer/start/crates.nvim",
+    url = "https://github.com/saecki/crates.nvim"
+  },
   harpoon = {
     loaded = true,
     path = "/home/recleun/.local/share/nvim/site/pack/packer/start/harpoon",
@@ -144,6 +149,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/recleun/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["telescope-ui-select.nvim"] = {
+    loaded = true,
+    path = "/home/recleun/.local/share/nvim/site/pack/packer/start/telescope-ui-select.nvim",
+    url = "https://github.com/nvim-telescope/telescope-ui-select.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,

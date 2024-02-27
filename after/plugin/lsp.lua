@@ -23,6 +23,7 @@ local cmp = require('cmp')
 cmp.setup({
 	sources = {
 		{ name = 'nvim_lsp' },
+		{ name = 'crates' },
 	},
 	mapping = {
 		['<C-y>'] = cmp.mapping.confirm({ select = false }),
