@@ -10,7 +10,7 @@ return require('packer').startup(function(use)
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 
-	use {'nvim-telescope/telescope-ui-select.nvim' }
+	use 'nvim-telescope/telescope-ui-select.nvim'
 
 	use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 	use('nvim-treesitter/playground')
@@ -45,7 +45,38 @@ return require('packer').startup(function(use)
 		}
 	}
 
+	use "hrsh7th/cmp-path"
+
 	use "lukas-reineke/indent-blankline.nvim"
+
+	use {
+		'numToStr/Comment.nvim',
+		config = function()
+			require('Comment').setup()
+		end
+	}
+
+	use {
+		"lewis6991/gitsigns.nvim",
+		config = function()
+			require("gitsigns").setup()
+		end
+	}
+
+	use {
+		"folke/which-key.nvim",
+		config = function()
+			vim.o.timeout = true
+			vim.o.timeoutlen = 300
+		end
+	}
+
+	use {
+		'nvim-lualine/lualine.nvim',
+		requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+	}
+
+	use 'andweeb/presence.nvim'
 
 	use {
 		'catppuccin/nvim',
