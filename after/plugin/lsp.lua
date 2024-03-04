@@ -3,7 +3,7 @@ local lsp_zero = require('lsp-zero')
 lsp_zero.on_attach(function(client, bufnr)
 	-- see :help lsp-zero-keybindings
 	-- to learn the available actions
-	lsp_zero.default_keymaps({ buffer = bufnr })
+	lsp_zero.default_keymaps({ buffer = bufnr, preserve_mappings = false })
 	vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
 	vim.keymap.set('n', '<leader>rs', vim.lsp.buf.rename, {})
 end)
@@ -12,7 +12,7 @@ end)
 -- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guide/integrate-with-mason-nvim.md
 require('mason').setup({})
 require('mason-lspconfig').setup({
-	ensure_installed = { 'rust_analyzer', 'tsserver', 'lua_ls', 'pyright', 'eslint' },
+	ensure_installed = { 'rust_analyzer', 'tsserver', 'lua_ls', 'pyright', 'eslint', 'wgsl_analyzer' },
 	handlers = {
 		lsp_zero.default_setup,
 	},
