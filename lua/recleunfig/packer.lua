@@ -85,4 +85,6 @@ return require('packer').startup(function(use)
 			vim.cmd 'colorscheme catppuccin'
 		end
 	}
+
+	use 'xiyaowong/transparent.nvim'
 end)
