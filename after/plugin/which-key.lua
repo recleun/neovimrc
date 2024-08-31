@@ -1,59 +1,55 @@
 local wk = require("which-key")
 
-wk.register({
-	h = {
-		name = "Harpoon",
-		a = "Add current file to harpoon",
-		l = "View currently harpooned files",
-		t = "View currently harpooned files with telescope",
-		q = "View buffer no. 1",
-		w = "View buffer no. 2",
-		e = "View buffer no. 3",
-		r = "View buffer no. 4",
-		n = "Go to next buffer in list",
-		b = "Go to previous buffer in list",
-	},
-}, { prefix = "<leader>" })
+-- harpoon
+wk.add({
+	{"<leader>h", group = "Harpoon"},
+	{"<leader>ha", desc = "Add current file to harpoon"},
+	{"<leader>hl", desc = "View currently harpooned files"},
+	{"<leader>ht", desc = "View currently harpooned files with telescope"},
+	{"<leader>hq", desc = "View buffer no. 1"},
+	{"<leader>hw", desc = "View buffer no. 2"},
+	{"<leader>he", desc = "View buffer no. 3"},
+	{"<leader>hr", desc = "View buffer no. 4"},
+	{"<leader>hn", desc = "Go to next buffer in list"},
+	{"<leader>hb", desc = "Go to previous buffer in list"},
+})
 
-wk.register({
-	r = {
-		name = "Rename",
-		s = "Rename Symbol",
-	},
-}, { prefix = "<leader>" })
+wk.add({
+	{"<leader>r", group = "Rename"},
+	{"<leader>rs", desc = "Rename Symbol"},
+})
 
-wk.register({
-	e = "Open file explorer",
-	f = "Search for a file",
-	s = "Rename all occurences/Search",
-}, { prefix = "<leader>" })
+wk.add({
+    { "<leader>e", desc = "Open file explorer" },
+    { "<leader>f", desc = "Search for a file" },
+    { "<leader>s", desc = "Rename all occurences/Search" },
+})
 
-wk.register({
-	c = {
-		name = "Code/Crates/Clear",
-		s = "Clear search",
-		a = "Code actions",
-		t = "Toggle crates.nvim",
-		r = "Reload crates.nvim",
-		u = "Update crate",
-		U = "Upgrade crate",
-		v = "List crate versions",
-		f = "List crate features",
-		d = "List crate dependencies",
-		R = "Open crate repository",
-		D = "Open crate documentation",
-		H = "Open crate homepage",
-		C = "Open crates.io",
-		x = "Extract crate to inline table",
-		X = "Extract crate to table",
-	},
-}, { prefix = "<leader>" })
+wk.add({
+    { "<leader>c", group = "Code/Crates/Clear" },
+    { "<leader>cC", desc = "Open crates.io" },
+    { "<leader>cD", desc = "Open crate documentation" },
+    { "<leader>cH", desc = "Open crate homepage" },
+    { "<leader>cR", desc = "Open crate repository" },
+    { "<leader>cU", desc = "Upgrade crate" },
+    { "<leader>cX", desc = "Extract crate to table" },
+    { "<leader>ca", desc = "Code actions" },
+    { "<leader>cd", desc = "List crate dependencies" },
+    { "<leader>cf", desc = "List crate features" },
+    { "<leader>cr", desc = "Reload crates.nvim" },
+    { "<leader>cs", desc = "Clear search" },
+    { "<leader>ct", desc = "Toggle crates.nvim" },
+    { "<leader>cu", desc = "Update crate" },
+    { "<leader>cv", desc = "List crate versions" },
+    { "<leader>cx", desc = "Extract crate to inline table" },
+})
 
-wk.register({
-	c = {
-		name = "Update with crates.nvim",
-		u = "Update crates",
-		U = "Upgrade crates",
-	},
-	p = "Print without overwriting clipboard",
-}, { prefix = "<leader>", mode = "v" })
+wk.add({
+    {
+      mode = { "v" },
+      { "<leader>c", group = "Update with crates.nvim" },
+      { "<leader>cU", desc = "Upgrade crates" },
+      { "<leader>cu", desc = "Update crates" },
+      { "<leader>p", desc = "Print without overwriting clipboard" },
+    },
+})
