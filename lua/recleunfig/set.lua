@@ -6,3 +6,4 @@ vim.opt.number = true -- show numbers
 vim.opt.relativenumber = true -- show relative numbers
 vim.opt.wrap = false
 vim.api.nvim_set_option("clipboard", "unnamedplus")
+vim.cmd.colorscheme("github_dark_high_contrast")

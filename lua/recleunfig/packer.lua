@@ -78,13 +78,7 @@ return require('packer').startup(function(use)
 
 	use 'andweeb/presence.nvim'
 
-	use {
-		'catppuccin/nvim',
-		as = 'catppuccin',
-		config = function()
-			vim.cmd 'colorscheme catppuccin'
-		end
-	}
-
 	use 'xiyaowong/transparent.nvim'
+
+	use 'projekt0n/github-nvim-theme'
 end)
