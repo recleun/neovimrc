@@ -1,7 +1,10 @@
+local transparent_auto = require("lualine.themes.auto")
+transparent_auto.normal.c.bg = 'none'
+
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'auto',
+    theme = transparent_auto,
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {
