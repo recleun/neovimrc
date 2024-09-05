@@ -12,7 +12,7 @@ end)
 -- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guide/integrate-with-mason-nvim.md
 require('mason').setup({})
 require('mason-lspconfig').setup({
-	ensure_installed = { 'rust_analyzer', 'ts_ls', 'lua_ls', 'pyright', 'eslint', 'wgsl_analyzer', 'jsonls' },
+	ensure_installed = { 'rust_analyzer', 'tsserver', 'lua_ls', 'pyright', 'eslint', 'wgsl_analyzer', 'jsonls' },
 	handlers = {
 		lsp_zero.default_setup,
 		jsonls = function()
