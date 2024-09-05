@@ -80,5 +80,10 @@ return require('packer').startup(function(use)
 
 	use 'xiyaowong/transparent.nvim'
 
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = function() vim.fn["mkdp#util#install"]() end,
+	})
+
 	use 'projekt0n/github-nvim-theme'
 end)
