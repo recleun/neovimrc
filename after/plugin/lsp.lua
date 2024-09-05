@@ -1,4 +1,5 @@
 local lsp_zero = require('lsp-zero')
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 lsp_zero.on_attach(function(client, bufnr)
 	-- see :help lsp-zero-keybindings
@@ -13,42 +14,45 @@ end)
 require('mason').setup({})
 require('mason-lspconfig').setup({
 	ensure_installed = { 'rust_analyzer', 'tsserver', 'lua_ls', 'pyright', 'eslint', 'wgsl_analyzer', 'jsonls' },
-	handlers = {
-		lsp_zero.default_setup,
-		jsonls = function()
-			require('lspconfig').jsonls.setup({
-				filetypes = {"json"},
-				settings = {
-					json = {
-						schemas = {
-							{
-								{
-									fileMatch = {"package.json"},
-									url = "https://json.schemastore.org/package.json"
-								},
-								{
-									fileMatch = {"tsconfig*.json"},
-									url = "https://json.schemastore.org/tsconfig.json"
-								},
-								{
-									fileMatch = {
-										".prettierrc",
-										".prettierrc.json",
-										"prettier.config.json"
-									},
-									url = "https://json.schemastore.org/prettierrc.json"
-								},
-								{
-									fileMatch = {".eslintrc", ".eslintrc.json"},
-									url = "https://json.schemastore.org/eslintrc.json"
-								},
-							}
-						}
+})
+
+require("mason-lspconfig").setup_handlers({
+	function(server_name)
+		if server_name == "tsserver" then server_name = "ts_ls" end
+		require("lspconfig")[server_name].setup({capabilities = capabilities})
+	end,
+	["jsonls"] = function()
+		require("lspconfig").jsonls.setup({
+			filetypes = { "json", "jsonc" },
+			capabilities = capabilities,
+			settings = {
+				json = {
+					schemas = {
+						{
+							fileMatch = {"package.json"},
+							url = "https://json.schemastore.org/package.json"
+						},
+						{
+							fileMatch = {"tsconfig*.json"},
+							url = "https://json.schemastore.org/tsconfig.json"
+						},
+						{
+							fileMatch = {
+								".prettierrc",
+								".prettierrc.json",
+								"prettier.config.json"
+							},
+							url = "https://json.schemastore.org/prettierrc.json"
+						},
+						{
+							fileMatch = {".eslintrc", ".eslintrc.json"},
+							url = "https://json.schemastore.org/eslintrc.json"
+						},
 					}
 				}
-			})
-		end
-	},
+			}
+		})
+	end,
 })
 
 local cmp = require('cmp')
