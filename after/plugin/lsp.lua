@@ -12,9 +12,42 @@ end)
 -- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guide/integrate-with-mason-nvim.md
 require('mason').setup({})
 require('mason-lspconfig').setup({
-	ensure_installed = { 'rust_analyzer', 'tsserver', 'lua_ls', 'pyright', 'eslint', 'wgsl_analyzer' },
+	ensure_installed = { 'rust_analyzer', 'ts_ls', 'lua_ls', 'pyright', 'eslint', 'wgsl_analyzer', 'jsonls' },
 	handlers = {
 		lsp_zero.default_setup,
+		jsonls = function()
+			require('lspconfig').jsonls.setup({
+				filetypes = {"json"},
+				settings = {
+					json = {
+						schemas = {
+							{
+								{
+									fileMatch = {"package.json"},
+									url = "https://json.schemastore.org/package.json"
+								},
+								{
+									fileMatch = {"tsconfig*.json"},
+									url = "https://json.schemastore.org/tsconfig.json"
+								},
+								{
+									fileMatch = {
+										".prettierrc",
+										".prettierrc.json",
+										"prettier.config.json"
+									},
+									url = "https://json.schemastore.org/prettierrc.json"
+								},
+								{
+									fileMatch = {".eslintrc", ".eslintrc.json"},
+									url = "https://json.schemastore.org/eslintrc.json"
+								},
+							}
+						}
+					}
+				}
+			})
+		end
 	},
 })
 
