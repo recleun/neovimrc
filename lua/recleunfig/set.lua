@@ -7,4 +7,5 @@ vim.opt.number = true -- show numbers
 vim.opt.relativenumber = true -- show relative numbers
 vim.opt.wrap = false
 
+vim.opt.clipboard = ""
 vim.cmd.colorscheme("github_dark")
