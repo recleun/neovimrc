@@ -13,6 +13,11 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.opt.number = true -- show numbers
 vim.opt.relativenumber = true -- show relative numbers
 vim.opt.wrap = false
+vim.opt.guicursor = ""
 
 vim.opt.clipboard = ""
 vim.cmd.colorscheme("github_dark")
+
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undofile = true
+
