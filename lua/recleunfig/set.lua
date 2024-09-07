@@ -3,11 +3,19 @@ vim.opt.shiftwidth = 4 -- how many spaces per indentation
 vim.opt.scrolloff = 8 -- check 24:00 in ThePrimeagen video
 vim.opt.expandtab = true -- tabs convert to spaces when typing them
 
--- converts shiftwidth to 2 when opening json files
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "json",
+-- converts shiftwidth to 2 when opening json/config files
+vim.api.nvim_create_autocmd("BufEnter", {
+    pattern = { "*.json", "*config.js" },
     callback = function()
         vim.opt.shiftwidth = 2
+    end
+})
+
+-- converts shiftwidth to 4 when not opening json/config files
+vim.api.nvim_create_autocmd("BufLeave", {
+    pattern = { "*" },
+    callback = function()
+        vim.opt.shiftwidth = 4
     end
 })
 
