@@ -7,6 +7,8 @@ Somewhat usable. Inpsired by [ThePrimeagen](https://www.youtube.com/watch?v=w7i4
 ## Dependencies
 
 - Neovim v0.9+
+- [Packer](https://github.com/wbthomason/packer.nvim)
+- [Lazygit](https://github.com/jesseduffield/lazygit)
 - If you somehow managed to find this repository, and use it, then please make a pull request if there are dependencies that aren't listed here.
 
 ## Installation
