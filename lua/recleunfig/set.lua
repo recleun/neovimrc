@@ -5,7 +5,7 @@ vim.opt.expandtab = true -- tabs convert to spaces when typing them
 
 -- converts shiftwidth to 2 when opening json/config files
 vim.api.nvim_create_autocmd("BufEnter", {
-    pattern = { "*.json", "*config.js" },
+    pattern = { "*.json", "*.js" },
     callback = function()
         vim.opt.shiftwidth = 2
     end
