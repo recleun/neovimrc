@@ -86,4 +86,8 @@ return require('packer').startup(function(use)
 	})
 
 	use 'projekt0n/github-nvim-theme'
+
+    use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+        require("toggleterm").setup()
+    end}
 end)
