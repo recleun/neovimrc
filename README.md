@@ -1,5 +1,5 @@
 # recleunfig
-
+### ⚠️ This repository has been archived, moved to [dotfiles](https://github.com/recleun/dotfiles). ⚠️
 A neovim configuration.
 
 Somewhat usable. Inpsired by [ThePrimeagen](https://www.youtube.com/watch?v=w7i4amO_zaE).
